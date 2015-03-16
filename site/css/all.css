@@ -1,0 +1,379 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Voltaire', Arial;
+  text-align: center;
+  background: #2B2A30;
+  color: #ffffff;
+  padding: 0 5%;
+  font-size: 22px;
+  line-height: 120%;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  font-weight: 400;
+  padding: 60px 0 20px;
+  font-size: 54px;
+  line-height: 1;
+}
+
+a {
+  color: #ffffff;
+}
+
+p {
+  font-size: 20px;
+  line-height: 28px;
+  margin: 20px 0;
+  letter-spacing: .2px;
+  word-spacing: 4px;
+}
+footer p {
+  margin: 0;
+  font-size: 16px;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 18px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.container {
+  margin: 30px auto 60px;
+  max-width: 960px;
+}
+
+.photo-slider {
+  margin-bottom: 20px;
+  display: inline-block;
+  max-width: 612px;
+}
+
+.wallop-slider {
+  position: relative;
+}
+
+.small-slider {
+  max-width: 320px;
+  display: inline-block;
+  vertical-align: top;
+  margin: 10px;
+}
+
+.btn {
+  font-family: 'Voltaire', Arial;
+  background: #ffffff;
+  color: #2B2A30;
+  border: 2px solid #2B2A30;
+  -webkit-appearance: none;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 10px 10px;
+  line-height: 10px;
+  margin-top: 20px;
+}
+@media only screen and (min-width: 480px) {
+  .btn {
+    margin-top: -10px;
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    opacity: 0;
+    -webkit-transition: opacity 200ms ease;
+    -moz-transition: opacity 200ms ease;
+    -ms-transition: opacity 200ms ease;
+    transition: opacity 200ms ease;
+  }
+  .wallop-slider:hover .btn {
+    opacity: .75;
+  }
+  .wallop-slider:hover .btn:hover {
+    opacity: 1;
+  }
+}
+.btn:hover {
+  cursor: pointer;
+}
+.btn[disabled] {
+  opacity: .4;
+}
+.btn[disabled], .btn[disabled]:hover {
+  cursor: default;
+}
+@media only screen and (min-width: 480px) {
+  .btn[disabled] {
+    visibility: hidden;
+  }
+}
+
+@media only screen and (min-width: 480px) {
+  .btn--previous {
+    left: 10px;
+  }
+}
+
+@media only screen and (min-width: 480px) {
+  .btn--next {
+    right: 10px;
+  }
+}
+
+.goto {
+  padding: 5px;
+}
+
+footer {
+  padding-bottom: 30px;
+}
+
+.wallop-slider {
+  /*width: 100%;*/
+}
+
+.wallop-slider__list {
+  list-style: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.wallop-slider__item {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.wallop-slider__item img {
+  display: block;
+  /*width: 100%;*/
+  max-height: 580px;
+}
+
+.wallop-slider__item--current {
+  display: block;
+  position: static;
+}
+
+/*==========  SLIDE CONFIG  ==========*/
+/* the 10ms animation-delay fixed some weird rendering issues with iPhone */
+.wallop-slider--slide .wallop-slider__item--show-previous {
+  -webkit-animation: slideFromLeft 350ms 10ms linear both;
+  -moz-animation: slideFromLeft 350ms 10ms linear both;
+  -ms-animation: slideFromLeft 350ms 10ms linear both;
+  animation: slideFromLeft 350ms 10ms linear both;
+}
+.wallop-slider--slide .wallop-slider__item--show-next {
+  -webkit-animation: slideFromRight 350ms 10ms linear both;
+  -moz-animation: slideFromRight 350ms 10ms linear both;
+  -ms-animation: slideFromRight 350ms 10ms linear both;
+  animation: slideFromRight 350ms 10ms linear both;
+}
+.wallop-slider--slide .wallop-slider__item--hide-previous, .wallop-slider--slide .wallop-slider__item--hide-next {
+  display: block;
+}
+.wallop-slider--slide .wallop-slider__item--hide-previous {
+  -webkit-animation: slideToLeft 350ms 10ms linear both;
+  -moz-animation: slideToLeft 350ms 10ms linear both;
+  -ms-animation: slideToLeft 350ms 10ms linear both;
+  animation: slideToLeft 350ms 10ms linear both;
+}
+.wallop-slider--slide .wallop-slider__item--hide-next {
+  -webkit-animation: slideToRight 350ms 10ms linear both;
+  -moz-animation: slideToRight 350ms 10ms linear both;
+  -ms-animation: slideToRight 350ms 10ms linear both;
+  animation: slideToRight 350ms 10ms linear both;
+}
+
+/*==========  SLIDE ANIMATIONS  ==========*/
+@-webkit-keyframes slideFromLeft {
+  0% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    -moz-transform: translate3d(-100%, 0, 0);
+    -ms-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@-moz-keyframes slideFromLeft {
+  0% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    -moz-transform: translate3d(-100%, 0, 0);
+    -ms-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@-ms-keyframes slideFromLeft {
+  0% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    -moz-transform: translate3d(-100%, 0, 0);
+    -ms-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes slideFromLeft {
+  0% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    -moz-transform: translate3d(-100%, 0, 0);
+    -ms-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@-webkit-keyframes slideFromRight {
+  0% {
+    -webkit-transform: translate3d(100%, 0, 0);
+    -moz-transform: translate3d(100%, 0, 0);
+    -ms-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+@-moz-keyframes slideFromRight {
+  0% {
+    -webkit-transform: translate3d(100%, 0, 0);
+    -moz-transform: translate3d(100%, 0, 0);
+    -ms-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+@-ms-keyframes slideFromRight {
+  0% {
+    -webkit-transform: translate3d(100%, 0, 0);
+    -moz-transform: translate3d(100%, 0, 0);
+    -ms-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+@keyframes slideFromRight {
+  0% {
+    -webkit-transform: translate3d(100%, 0, 0);
+    -moz-transform: translate3d(100%, 0, 0);
+    -ms-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+@-webkit-keyframes slideToLeft {
+  99% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    -moz-transform: translate3d(-100%, 0, 0);
+    -ms-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@-moz-keyframes slideToLeft {
+  99% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    -moz-transform: translate3d(-100%, 0, 0);
+    -ms-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@-ms-keyframes slideToLeft {
+  99% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    -moz-transform: translate3d(-100%, 0, 0);
+    -ms-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes slideToLeft {
+  99% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    -moz-transform: translate3d(-100%, 0, 0);
+    -ms-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@-webkit-keyframes slideToRight {
+  99% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+    -moz-transform: translate3d(100%, 0, 0);
+    -ms-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+@-moz-keyframes slideToRight {
+  99% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+    -moz-transform: translate3d(100%, 0, 0);
+    -ms-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+@-ms-keyframes slideToRight {
+  99% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+    -moz-transform: translate3d(100%, 0, 0);
+    -ms-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+@keyframes slideToRight {
+  99% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+    -moz-transform: translate3d(100%, 0, 0);
+    -ms-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+}
